@@ -2,8 +2,24 @@ body {
   background-color: oldlace;
 }
 
-.jumbotron {
+#homePage {
   background-color: lightblue;
   margin-top: 15%;
   border: rgb(5, 171, 226) solid 50px;
+}
+
+label {
+  font-size: xx-large;
+}
+
+.form-group {
+  margin-top: 1%;
+}
+
+.info {
+  font-size: larger;
+}
+
+.links {
+  margin-bottom: 2%;
 }

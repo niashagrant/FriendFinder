@@ -1,0 +1,221 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- Place your kit's code here -->
+    <script
+      src="https://kit.fontawesome.com/3ed87a7545.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/app/public/css/style.css" />
+    <title>Quarantine Friend Finder</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- As a link -->
+
+      <header class="text-center">
+        <h1 class="display-3">Ready Begin Survey</h1>
+        <br />
+        <div>
+          Before you begin enter your name and a profile picture. Only then can
+          we find your new social distanced buddy!
+        </div>
+      </header>
+
+      <br />
+
+      <form>
+        <div class="form-group">
+          <label for="name" class="info">Your Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustom01"
+            placeholder="Enter your name"
+            required
+          />
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="picture" class="info">Profile Picture</label>
+          <input
+            type="file"
+            class="form-control-file"
+            id="exampleFormControlFile1"
+            required
+          />
+        </div>
+      </form>
+
+      <br />
+      <hr />
+
+      <form action="">
+        <label for="queston">Question 1</label>
+        <div class="questions">
+          It is more important to be respected than liked.
+        </div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question1">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 2</label>
+        <div class="questions">
+          It is impossible to love more than one person at a time.
+        </div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question2">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 3</label>
+        <div class="questions">After death, there is nothing.</div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question3">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 4</label>
+        <div class="questions">Money is more important than friends.</div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question4">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 5</label>
+        <div class="questions">You can start life over whenever you want.</div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question5">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 6</label>
+        <div class="questions">
+          Family is the most important thing in the world.
+        </div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question6">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 7</label>
+        <div class="questions">
+          If someone wrongs you once, they are bound to do it again.
+        </div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question7">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 8</label>
+        <div class="questions">Hard times reveal people's true colors</div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question8">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 9</label>
+        <div class="questions">
+          What doesn't kill you only makes you stronger.
+        </div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question9">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+        <label for="queston">Question 10</label>
+        <div class="questions">
+          Physical energey is more than mental energy.
+        </div>
+        <div class="form-group">
+          <select class="selectAnswer" id="question10">
+            <option value="">Select an Option</option>
+            <option value="5">Strongly Agree - 5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">Strongly Disagree - 1</option>
+          </select>
+        </div>
+      </form>
+      <div class="links">
+        <a href=""> API Friends List</a> | <a href="">GitHub Repo</a>
+      </div>
+    </div>
+  </body>
+</html>
