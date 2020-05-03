@@ -42,7 +42,7 @@
         <br />
         <div>
           Before you begin enter your name and a profile picture. Only then can
-          we find your new social distanced buddy!
+          we find your new socially distanced buddy!
         </div>
       </header>
 
@@ -53,8 +53,8 @@
           <label for="name" class="info">Your Name</label>
           <input
             type="text"
-            class="form-control"
-            id="validationCustom01"
+            class="validate"
+            id="userName"
             placeholder="Enter your name"
             required
           />
@@ -65,12 +65,7 @@
 
         <div class="form-group">
           <label for="picture" class="info">Profile Picture</label>
-          <input
-            type="file"
-            class="form-control-file"
-            id="exampleFormControlFile1"
-            required
-          />
+          <input type="file" class="validate" id="photo" required />
         </div>
       </form>
 
@@ -210,10 +205,188 @@
             <option value="1">Strongly Disagree - 1</option>
           </select>
         </div>
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-dark"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          id="submitSurvey"
+        >
+          Submit Survey
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal"
+          id="exampleModal"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document" id="newFriendModal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title text-center" id="exampleModalLabel">
+                  Congrats Your Quarantine Friend is Below
+                </h4>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <h2 id="newFriend"></h2>
+                <img id="newFriendPhoto" src="#" alt="" />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
+
       <div class="links">
-        <a href=""> API Friends List</a> | <a href="">GitHub Repo</a>
+        <a href="/api/friends"> API Friends List</a> |
+        <a href="https://github.com/niashagrant/FriendFinder">GitHub Repo</a>
       </div>
     </div>
   </body>
+
+  <script>
+    $(document).ready(function () {
+      $("#submitSurvey").on("click", function () {
+        //form validation
+        function validateForm() {
+          var isValid = true;
+          $(".validate").each(function () {
+            if ($(this).val() === "") {
+              isValid = false;
+            }
+          });
+
+          $(".selectAnswer").each(function () {
+            if ($(this).val() === "") {
+              isValid = false;
+            }
+          });
+
+          return isValid;
+        }
+
+        //if everything is filled
+        if (validateForm() == true) {
+          //creates a new friend from the values submitted
+          var newUserInfo = {
+            name: $("#userName").val().trim(),
+            photo: $("#photo").val().trim(),
+            scores: [
+              $("#question1").val(),
+              $("#question2").val(),
+              $("#question3").val(),
+              $("#question4").val(),
+              $("#question5").val(),
+              $("#question6").val(),
+              $("#question7").val(),
+              $("#question8").val(),
+              $("#question9").val(),
+              $("#question10").val(),
+            ],
+          };
+
+          //Grabs current URL of website
+          var currentURL = window.location.origin;
+
+          //AJAX posts the data to friends API.
+          $.post(currentURL + "/api/friends", newUserInfo, function (data) {
+            //Grab the result from the AJAX post so that the best match's name and photo are displayed.
+            $("#newFriend").text(data.name);
+            $("#newFriendPhoto").attr("src", data.photo);
+          });
+          // Show the modal with the best match
+          $(".modal").modal();
+
+          //clear form after submission
+          $("#userName").val("");
+          $("#photo").val("");
+          $("#question1").val("");
+          $("#question2").val("");
+          $("#question3").val("");
+          $("#question4").val("");
+          $("#question5").val("");
+          $("#question6").val("");
+          $("#question7").val("");
+          $("#question8").val("");
+          $("#question9").val("");
+          $("#question10").val("");
+        } else {
+          alert("Please fill out ALL fields before submitting survey!");
+        }
+
+        // return false;
+      });
+    });
+    // $("#submitSurvey").on("click", function () {
+    //   event.preventDefault();
+
+    //   var vaild = true;
+
+    //   if ($("#userName").val() === "" || $("#photo").val() === "") {
+    //     vaild = false;
+    //   } else if (
+    //     $("#question1").val() === "empty" ||
+    //     $("#question2").val() === "empty" ||
+    //     $("#question3").val() === "empty" ||
+    //     $("#question4").val() === "empty" ||
+    //     $("#question5").val() === "empty" ||
+    //     $("#question6").val() === "empty" ||
+    //     $("#question7").val() === "empty" ||
+    //     $("#question8").val() === "empty" ||
+    //     $("#question9").val() === "empty" ||
+    //     $("#question10").val() === "empty"
+    //   ) {
+    //     valid = false;
+    //   }
+    //   if (valid === true) {
+    //     var newUserInfo = {
+    //       name: $("#userName").val().trim(),
+    //       photo: $("#photo").val().trim(),
+    //       scores: [
+    //         $("#question1").val(),
+    //         $("#question2").val(),
+    //         $("#question3").val(),
+    //         $("#question4").val(),
+    //         $("#question5").val(),
+    //         $("#question6").val(),
+    //         $("#question7").val(),
+    //         $("#question8").val(),
+    //         $("#question9").val(),
+    //         $("#question10").val(),
+    //       ],
+    //     };
+
+    //     var URL = window.location.origin;
+
+    //     $.post(URL + "/api/friends", newUserInfo, function (data) {
+    //       $("#newFriend").text(data.name);
+    //       $("#newFriendPhoto").attr("src", data.photo);
+    //       $("#newFriendModal").modal("toggle");
+    //     });
+    //   } else {
+    //     alert("Please complete survey!");
+    //   }
+    // });
+  </script>
 </html>

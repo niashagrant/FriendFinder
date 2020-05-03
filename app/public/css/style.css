@@ -28,5 +28,6 @@ label {
 /* SURVEY PAGE */
 
 #surveyPage {
-  border: lightcoral solid 50px;
+  border-right: lightcoral solid 100px;
+  border-left: lightcoral solid 100px;
 }
